@@ -1,0 +1,10 @@
+a:9:{s:15:"backgroundimage";s:0:"";s:10:"brandcolor";s:0:"";s:20:"loginbackgroundimage";s:12:"/zsUvU5T.png";s:6:"preset";s:12:"default.scss";s:11:"presetfiles";s:0:"";s:4:"scss";s:108:"/* Icons for external links need some distance */
+.icon.fa.fa-external-link:before { padding-left: 4px; }
+";s:7:"scsspre";s:262:"$course-content-maxwidth: 1200px;
+$h5p-content-maxwidth: 900px;
+$container-bg: rgba(255, 255, 255, 1)  default;
+.login-container {
+border-radius: 20px!important;
+background-color: $container-bg;
+}
+.login-heading {content: "Yeni Başlık Metni"!important;}";s:15:"unaddableblocks";s:45:"navigation,settings,course_list,section_links";s:7:"version";s:10:"2023100900";}

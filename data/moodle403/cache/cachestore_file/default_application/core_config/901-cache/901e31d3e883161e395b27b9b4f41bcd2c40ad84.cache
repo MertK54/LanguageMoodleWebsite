@@ -1,0 +1,22 @@
+a:10:{s:15:"backgroundimage";s:0:"";s:10:"brandcolor";s:0:"";s:20:"loginbackgroundimage";s:0:"";s:10:"navbardark";s:1:"0";s:6:"preset";s:12:"default.scss";s:11:"presetfiles";s:0:"";s:4:"scss";s:477:"/* Giriş sayfası arka plan rengini değiştirme */
+body.loginpage {
+    background-color: #f0f0f0;
+}
+
+/* Giriş kutusunun stilini değiştirme */
+.loginbox {
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Giriş butonunu stilize etme */
+input#loginbtn {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+";s:7:"scsspre";s:0:"";s:15:"unaddableblocks";s:0:"";s:7:"version";s:10:"2023100900";}

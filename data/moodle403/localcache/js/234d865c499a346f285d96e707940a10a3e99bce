@@ -1,0 +1,16 @@
+(function($){function findInstanceInArray(instances,contentId){if(instances!==undefined&&contentId!==undefined){for(var i=0;i<instances.length;i++){if(instances[i].contentId===contentId){return instances[i]}}}
+return undefined}
+function getH5PInstance(contentId){var iframes;var instance=null;if(!contentId){instance=H5P.instances[0];if(!instance){iframes=document.getElementsByClassName('h5p-iframe');instance=iframes[0].contentWindow.H5P.instances[0]}}else{instance=findInstanceInArray(H5P.instances,contentId);if(!instance){iframes=document.getElementsByClassName('h5p-iframe');for(var i=0;i<iframes.length;i++){instance=findInstanceInArray(iframes[i].contentWindow.H5P.instances,contentId);if(instance){break}}}}
+return instance}
+function getIframe(contentId){let iFrames;if(!contentId){iFrames=document.getElementsByClassName('h5p-iframe');return iFrames[0]}
+iFrames=document.getElementsByClassName('h5p-iframe');for(let i=0;i<iFrames.length;i++){if(findInstanceInArray(iFrames[i].contentWindow.H5P.instances,contentId)){return iFrames[i]}}
+return null}
+function storeXAPIData(contentId,event){var xAPIData;var instance=getH5PInstance(contentId);if(instance&&instance.getXAPIData){xAPIData=instance.getXAPIData()}else{xAPIData={statement:event.data.statement}}
+var data={contentId:contentId,xAPIResult:JSON.stringify(xAPIData)};$.post(H5PIntegration.ajax.xAPIResult,data).done(function(data){if(data.error){console.error('Storing xAPI results failed with error message:',data)}}).fail(function(){if(H5P.offlineRequestQueue){H5P.offlineRequestQueue.add(H5PIntegration.ajax.xAPIResult,data);return}
+const iframe=getIframe(contentId);if(!iframe){return}
+iframe.contentWindow.postMessage({url:H5PIntegration.ajax.xAPIResult,data:data,context:'h5p',action:'queueRequest',})})}
+$(document).ready(function(){if(!(window.H5P&&H5P.externalDispatcher)){console.error('External dispatcher not found');return}
+if(!(window.H5PIntegration&&H5PIntegration.ajax&&H5PIntegration.ajax.xAPIResult)){console.error('No ajax path found');return}
+H5P.externalDispatcher.on('xAPI',function(event){var hasStatement=event&&event.data&&event.data.statement;if(!hasStatement){return}
+var statement=event.data.statement;var validVerb=statement.verb&&statement.verb.display&&statement.verb.display['en-US'];if(!validVerb){return}
+var isCompleted=statement.verb.display['en-US']==='answered'||statement.verb.display['en-US']==='completed';var isChild=statement.context&&statement.context.contextActivities&&statement.context.contextActivities.parent&&statement.context.contextActivities.parent[0]&&statement.context.contextActivities.parent[0].id;if(isCompleted&&!isChild){storeXAPIData(this.contentId,event)}})})})(H5P.jQuery)

@@ -1,0 +1,16 @@
+username,password,firstname,lastname,email,role
+emilyjohnson,password1,Emily,Johnson,emilyjohnson@example.com,student
+michaelsmith,password2,Michael,Smith,michaelsmith@example.com,student
+jessicawilliams,password3,Jessica,Williams,jessicawilliams@example.com,student
+danieljones,password4,Daniel,Jones,danieljones@example.com,student
+oliviataylor,password5,Olivia,Taylor,oliviataylor@example.com,student
+ethanmartinez,password6,Ethan,Martinez,ethanmartinez@example.com,student
+sophiabrown,password7,Sophia,Brown,sophiabrown@example.com,student
+williamdavis,password8,William,Davis,williamdavis@example.com,student
+isabellajohnson,password9,Isabella,Johnson,isabellajohnson@example.com,student
+jacobwilson,password10,Jacob,Wilson,jacobwilson@example.com,student
+emilyrodriguez,password11,Emily,Rodriguez,emilyrodriguez@example.com,student
+liamgarcia,password12,Liam,Garcia,liamgarcia@example.com,student
+charlottehernandez,password13,Charlotte,Hernandez,charlottehernandez@example.com,student
+dylanmartin,password14,Dylan,Martin,dylanmartin@example.com,student
+ameliacampbell,password15,Amelia,Campbell,ameliacampbell@example.com,student
